@@ -8,37 +8,41 @@
 
 ---
 
-## 已知支持
+## 怎么用（只做一次）
 
-| 应用 | 规则文件 | 状态 |
+在 Shadowrocket 里添加**一份**配置，以后所有应用共用这一份：
+
+```
+https://raw.githubusercontent.com/ZhaoDay/adios-rules/main/adios.conf
+```
+
+1. 「配置」页 → 右上角 **+** → 粘贴上面的地址 → 下载
+2. 点选这份配置
+3. 首页「全局路由」选「配置」，打开顶部开关
+
+**以后规则更新**：配置列表里对这份配置执行「更新」即可，不用重新添加。所有应用的规则都在 [`adios.conf`](adios.conf) 里，按应用分段，新应用会直接加进去。
+
+这份配置只做两件事：命中广告域名就 `REJECT`，其余流量 `DIRECT`。所以**不需要节点、不需要证书、不需要开 HTTPS 解密**，也不会有流量绕路。
+
+---
+
+## 已支持
+
+| 应用 | 状态 | 说明 |
 |---|---|---|
-| 波点音乐 | [`bodian.conf`](bodian.conf) | 已在 iPhone 实测生效 |
+| 波点音乐 | ✅ 已在 iPhone 实测生效 | TME 自有广告 + 腾讯优量汇 |
 
 > 「生效」指：开启规则后冷启动不再出现开屏广告。首次使用如果之前缓存过广告，需要等缓存过期（约 12–24 小时）或卸载重装一次。
 
 ---
 
-## 在 Shadowrocket 里使用
+## 其他客户端的规则片段
 
-1. 打开「配置」页 → 右上角 **+** → 粘贴配置地址：
-   ```
-   https://raw.githubusercontent.com/ZhaoDay/adios-rules/main/bodian.conf
-   ```
-2. 下载完成后点选这份配置
-3. 回到首页，**全局路由**选「配置」，打开顶部开关
-4. 彻底关掉目标应用再打开，观察是否还有开屏广告
+不想用整份配置、只想往自己的配置里加几条的话，按客户端取用。规则要放在 `FINAL` / 最后的 `DIRECT` **之前**。
 
-**更新规则**：配置列表里对这份配置执行「更新」，或者删掉重新下载。规则有变化时我会在这里更新。
+### 波点音乐
 
-这份配置只做了两件事：命中广告域名就 `REJECT`，其余流量 `DIRECT`。所以**不需要节点、不需要证书、不需要开 HTTPS 解密**，也不会有流量绕路。
-
----
-
-## 在其他客户端里使用
-
-### Quantumult X
-
-`[filter_local]` 段追加：
+Quantumult X（`[filter_local]`）：
 
 ```
 host, ad.tencentmusic.com, reject
@@ -52,9 +56,7 @@ host, tangram.e.qq.com, reject
 host-suffix, gdtimg.com, reject
 ```
 
-### Loon
-
-`[Rule]` 段追加：
+Loon（`[Rule]`）：
 
 ```
 HOST,ad.tencentmusic.com,REJECT
@@ -68,9 +70,7 @@ HOST,tangram.e.qq.com,REJECT
 HOST-SUFFIX,gdtimg.com,REJECT
 ```
 
-### Surge
-
-`[Rule]` 段追加：
+Surge（`[Rule]`）：
 
 ```
 DOMAIN,ad.tencentmusic.com,REJECT
@@ -83,8 +83,6 @@ DOMAIN,sdkreport.e.qq.com,REJECT
 DOMAIN,tangram.e.qq.com,REJECT
 DOMAIN-SUFFIX,gdtimg.com,REJECT
 ```
-
-注意：规则要放在 `FINAL` / 最后的 `DIRECT` **之前**，否则不会命中。
 
 ---
 
