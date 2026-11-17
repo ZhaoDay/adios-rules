@@ -54,6 +54,12 @@ host, sdk.e.qq.com, reject
 host, sdkreport.e.qq.com, reject
 host, tangram.e.qq.com, reject
 host-suffix, gdtimg.com, reject
+host, p.l.qq.com, reject
+host, pgdt.gtimg.cn, reject
+host-suffix, pangolin-sdk-toutiao.com, reject
+host-suffix, pglstatp-toutiao.com, reject
+host, lf-cdn-tos.bytescm.com, reject
+host-suffix, ctobsnssdk.com, reject
 ```
 
 Loon（`[Rule]`）：
@@ -68,6 +74,12 @@ HOST,sdk.e.qq.com,REJECT
 HOST,sdkreport.e.qq.com,REJECT
 HOST,tangram.e.qq.com,REJECT
 HOST-SUFFIX,gdtimg.com,REJECT
+HOST,p.l.qq.com,REJECT
+HOST,pgdt.gtimg.cn,REJECT
+HOST-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+HOST-SUFFIX,pglstatp-toutiao.com,REJECT
+HOST,lf-cdn-tos.bytescm.com,REJECT
+HOST-SUFFIX,ctobsnssdk.com,REJECT
 ```
 
 Surge（`[Rule]`）：
@@ -82,6 +94,12 @@ DOMAIN,sdk.e.qq.com,REJECT
 DOMAIN,sdkreport.e.qq.com,REJECT
 DOMAIN,tangram.e.qq.com,REJECT
 DOMAIN-SUFFIX,gdtimg.com,REJECT
+DOMAIN,p.l.qq.com,REJECT
+DOMAIN,pgdt.gtimg.cn,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN,lf-cdn-tos.bytescm.com,REJECT
+DOMAIN-SUFFIX,ctobsnssdk.com,REJECT
 ```
 
 ---
